@@ -1,0 +1,8 @@
+
+HEARTH_ACHIEVEMENTS:
+  Display: 'Hearth of Makers'
+  Description: 'Where the creation begins!'
+  Background: 'textures/block/dark_oak_planks.png'
+  Icon:
+    Material: SMITHING_TABLE
+  
