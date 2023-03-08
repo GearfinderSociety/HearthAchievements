@@ -1,0 +1,445 @@
+BASICS_BREAK_WOOD:
+  Display: "Gathering Resources"
+  Description: "Colect 8 wood logs"
+  Category: HEARTH_ACHIEVEMENTS
+  Frame: TASK
+  Icon:
+    Material: OAK_LOG
+    Model: 0
+  Criteria:
+    1:
+      Type: BREAKBLOCKS
+      Block: OAK_LOG,BIRCH_LOG,SPRUCE_LOG,JUNGLE_LOG,ACACIA_LOG,DARK_OAK_LOG,MANGROVE_LOG,OAK_WOOD,BIRCH_WOOD,SPRUCE_WOOD,JUNGLE_WOOD,ACACIA_WOOD,DARK_OAK_WOOD,MANGROVE_WOOD
+      Amount: 8
+  Reward:
+    Message: "<green>A great start! Here, a basic kit!"
+    Drops:
+    - stone_sword 1
+    - stone_pickaxe 1
+    - stone_axe 1
+    - stone_hoe 1
+    - stone_shovel 1
+    - torch 8
+
+#----------------------------------------------------------------------------------------#
+
+VILLAGER_MEET_EMERALD:
+  Display: "A New Currency?"
+  Description: "Get your hands on an emerald"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: BASICS_BREAK_WOOD
+  Frame: TASK
+  Icon:
+    Material: EMERALD
+    Model: 0
+  Criteria:
+    1:
+      Type: CONDITIONAL
+      CheckInterval: 200
+      Conditions:
+      - hasitem{i=EMERALD;amount=>0}
+  Reward:
+    Message: "<green>I wonder who would take this coin..."
+    Drops:
+    - emerald 2
+
+VILLAGER_MEET_FRIENDLY:
+  Display: "Friendly Neighbors"
+  Description: "Trade with villagers and get 64 emeralds"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_EMERALD
+  Frame: TASK
+  Icon:
+    Material: EMERALD
+    Model: 0
+  Criteria:
+    1:
+      Type: CONDITIONAL
+      CheckInterval: 200
+      Conditions:
+      - hasitem{i=EMERALD;amount=>63}
+  Reward:
+    Message: "<green>Nice to see friendly faces around!"
+    Drops:
+    - emerald 4
+
+
+
+VILLAGER_PLACE_COMPOSTER:
+  Display: "Friendly Farmers"
+  Description: "Place 3 composters for Farmers"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_EMERALD
+  Frame: TASK
+  Icon:
+    Material: COMPOSTER
+    Model: 0
+  Criteria:
+    1:
+      Type: PLACEBLOCKS
+      Block: COMPOSTER
+      Amount: 3
+  Reward:
+    Message: "<green>A good day in the farm!"
+    Drops:
+    - wheat 30
+    - emerald 6
+VILLAGER_PLACE_SMITHING_TABLE:
+  Display: "Hardworking Smiths"
+  Description: "Place 3 smithing tables for Toolsmiths"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_EMERALD
+  Frame: TASK
+  Icon:
+    Material: SMITHING_TABLE
+    Model: 0
+  Criteria:
+    1:
+      Type: PLACEBLOCKS
+      Block: SMITHING_TABLE
+      Amount: 3
+  Reward:
+    Message: "<green>The forge and the smith!"
+    Drops:
+    - anvil 1
+    - emerald 6
+VILLAGER_PLACE_CARTOGRAPHY_TABLE:
+  Display: "Knowledge is Power"
+  Description: "Place 3 cartography tables for Cartographers"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_EMERALD
+  Frame: TASK
+  Icon:
+    Material: CARTOGRAPHY_TABLE
+    Model: 0
+  Criteria:
+    1:
+      Type: PLACEBLOCKS
+      Block: CARTOGRAPHY_TABLE
+      Amount: 3
+  Reward:
+    Message: "<green>Time to document the world!"
+    Drops:
+    - book 8
+    - compass 1
+    - emerald 6
+
+
+
+
+
+VILLAGER_MEET_FRIENDLY_WHY:
+  Display: "You killed him! Why!?"
+  Description: "Meet a friendly villager, and kill him..."
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_FRIENDLY
+  Frame: TASK
+  Icon:
+    Material: ZOMBIE_HEAD
+    Model: 0
+  Criteria:
+    1:
+      Type: KILL_MOB_TYPE
+      Amount: 1
+      EntityType: VILLAGER
+  Reward:
+    Message: "<green>That wasn't nice! Now beware the golem!"
+    Drops:
+    - emerald 1
+
+VILLAGER_MEET_FRIENDLY_WHY_2:
+  Display: "Now I AM the Pillager"
+  Description: "Kill an Iron Golem from a peaceful village"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_FRIENDLY_WHY
+  Frame: TASK
+  Icon:
+    Material: IRON_BLOCK
+    Model: 0
+  Criteria:
+    1:
+      Type: KILL_MOB_TYPE
+      Amount: 1
+      EntityType: IRON_GOLEM
+  Reward:
+    Message: "<green>Are you happy now? You monster!"
+    Drops:
+    - iron_block 1
+
+VILLAGER_MEET_NOT-SO-FRIENDLY:
+  Display: "Not So-Friendly Neighbors"
+  Description: "Meet a pillager, and slay it..."
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_EMERALD
+  Frame: TASK
+  Icon:
+    Material: CROSSBOW
+    Model: 0
+  Criteria:
+    1:
+      Type: KILL_MOB_TYPE
+      Amount: 1
+      EntityType: PILLAGER
+  Reward:
+    Message: "<green>Hold on, that wasn't friendly!"
+    Drops:
+    - iron_axe 1
+    - crossbow 1
+    - arrow 16
+
+VILLAGER_MEET_NOT-SO-FRIENDLY_2:
+  Display: "An Axe? Why!?"
+  Description: "Meet a vindicator, and slay it..."
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_NOT-SO-FRIENDLY
+  Frame: TASK
+  Icon:
+    Material: IRON_AXE
+    Model: 0
+  Criteria:
+    1:
+      Type: KILL_MOB_TYPE
+      Amount: 1
+      EntityType: VINDICATOR
+  Reward:
+    Message: "<green>Starting to think that those guys dislike me..."
+    Drops:
+    - iron_helmet 1
+    - iron_chestplate 1
+    - arrow 32
+
+VILLAGER_MEET_NOT-SO-FRIENDLY_3:
+  Display: "An Axe and a Crossbow"
+  Description: "Slay 16 vindicators and 32 pillagers"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_NOT-SO-FRIENDLY_2
+  Frame: TASK
+  Icon:
+    Material: DIAMOND_AXE
+    Model: 0
+  Criteria:
+    1:
+      Type: KILL_MOB_TYPE
+      Amount: 16
+      EntityType: VINDICATOR
+    2:
+      Type: KILL_MOB_TYPE
+      Amount: 32
+      EntityType: PILLAGER
+  Reward:
+    Message: "<green>Get out of my town! Pesky Illagers!"
+    Drops:
+    - diamond_axe 1
+    - emerald 12
+
+VILLAGER_MEET_NOT-SO-FRIENDLY_4:
+  Display: "For Real... A Cultist!?"
+  Description: "Meet an Evoker, and take him down"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_NOT-SO-FRIENDLY_3
+  Frame: TASK
+  Icon:
+    Material: TOTEM_OF_UNDYING
+    Model: 0
+  Criteria:
+    1:
+      Type: KILL_MOB_TYPE
+      Amount: 1
+      EntityType: EVOKER
+  Reward:
+    Message: "<green>What else those Illagers got? Ghosts!?"
+    Drops:
+    - totem_of_undying 1
+    - emerald 16
+VILLAGER_MEET_NOT-SO-FRIENDLY_GHOST:
+  Display: "You have to be kidding me!"
+  Description: "Take down 16 Vexes, and rethink what's reality..."
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: VILLAGER_MEET_NOT-SO-FRIENDLY_3
+  Frame: TASK
+  Icon:
+    Material: IRON_SWORD
+    Model: 0
+  Criteria:
+    1:
+      Type: KILL_MOB_TYPE
+      Amount: 16
+      EntityType: VEX
+  Reward:
+    Message: "<green>I've seen cultists, ghosts and maniacs, what else now?"
+    Drops:
+    - allay_spawn_egg 1
+
+#----------------------------------------------------------------------------------------#
+
+BASICS_BREAK_STONE:
+  Display: "Gathering Resources II"
+  Description: "Colect 32 stone-like materials"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: BASICS_BREAK_WOOD
+  Frame: TASK
+  Icon:
+    Material: STONE
+    Model: 0
+  Criteria:
+    1:
+      Type: BREAKBLOCKS
+      Block: STONE,ANDESITE,DIORITE,GRANITE,DEEPSLATE,BLACKSTONE
+      Amount: 32
+  Reward:
+    Message: "<green>Now we need a way to cook food!"
+    Drops:
+    - campfire 1
+    - coal 4
+
+BASICS_PLACE_FURNACE_1:
+  Display: "Basic Cooking"
+  Description: "Place 1 campfire"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: BASICS_BREAK_WOOD
+  Frame: TASK
+  Icon:
+    Material: CAMPFIRE
+    Model: 0
+  Criteria:
+    1:
+      Type: PLACEBLOCKS
+      Block: CAMPFIRE
+      Amount: 1
+  Reward:
+    Message: "<green>Good job! But how about furnaces?"
+    Drops:
+    - furnace 1
+    - coal 4
+
+BASICS_PLACE_FURNACE_2:
+  Display: "Basic Smelting"
+  Description: "Place 4 furnaces"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: BASICS_PLACE_FURNACE_1
+  Frame: TASK
+  Icon:
+    Material: FURNACE
+    Model: 0
+  Criteria:
+    1:
+      Type: PLACEBLOCKS
+      Block: FURNACE
+      Amount: 4
+  Reward:
+    Message: "<green>Good job! But how about specialized furnaces?"
+    Drops:
+    - blast_furnace 1
+    - smoker 1
+BASICS_PLACE_FURNACE_3:
+  Display: "Early Smelting"
+  Description: "Place 4 smokers and blast furnaces"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: BASICS_PLACE_FURNACE_2
+  Frame: TASK
+  Icon:
+    Material: BLAST_FURNACE
+    Model: 0
+  Criteria:
+    1:
+      Type: PLACEBLOCKS
+      Block: BLAST_FURNACE
+      Amount: 4
+    2:
+      Type: PLACEBLOCKS
+      Block: SMOKER
+      Amount: 4
+  Reward:
+    Message: "<green>Perfect! Now we can smelt and cook items efficiently!"
+    Drops:
+    - iron_ingot 4
+    - gold_ingot 4
+    - copper_ingot 4
+
+BASICS_KILL_UNDEAD:
+  Display: "An Old Threat"
+  Description: "Slay 16 zombies and 16 skeletons at night"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: BASICS_BREAK_STONE
+  Frame: TASK
+  Icon:
+    Material: IRON_SWORD
+    Model: 0
+  Criteria:
+    1:
+      Type: KILL_MOB_TYPE
+      Amount: 16
+      EntityType: ZOMBIE
+      Conditions:
+      - night
+    2:
+      Type: KILL_MOB_TYPE
+      Amount: 16
+      EntityType: SKELETON
+      Conditions:
+      - night
+  Reward:
+    Message: "<green>As you see, you are not alone here..."
+    Drops:
+    - iron_sword 1
+    - iron_ingot 3
+
+#----------------------------------------------------------------------------------------#
+
+BASICS_PLACE_TABLE:
+  Display: "Early Crafts"
+  Description: "Place a crafting table"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: BASICS_BREAK_WOOD
+  Frame: TASK
+  Icon:
+    Material: CRAFTING_TABLE
+    Model: 0
+  Criteria:
+    1:
+      Type: PLACEBLOCKS
+      Block: CRAFTING_TABLE
+      Amount: 1
+  Reward:
+    Message: "<green>Now, time to setup camp!"
+    Drops:
+    - torch 16
+    - wheat_seeds 16
+    - oak_sapling 4
+
+BASICS_PLACE_REFORESTATION:
+  Display: "Reforestation"
+  Description: "Plant 4 tree saplings"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: BASICS_PLACE_TABLE
+  Frame: TASK
+  Icon:
+    Material: OAK_SAPLING
+    Model: 0
+  Criteria:
+    1:
+      Type: PLACEBLOCKS
+      Block: OAK_SAPLING,BIRCH_SAPLING,SPRUCE_SAPLING,JUNGLE_SAPLING,ACACIA_SAPLING,DARK_OAK_SAPLING,MANGROVE_PROPAGULE
+      Amount: 4
+  Reward:
+    Message: "<green>Now we can assure our wood!"
+    Drops:
+    - charcoal 12
+BASICS_PLACE_SEEDS_OF_TOMORROW:
+  Display: "Seeds of Tomorrow"
+  Description: "Plant 8 wheat seeds"
+  Category: HEARTH_ACHIEVEMENTS
+  Parent: BASICS_PLACE_TABLE
+  Frame: TASK
+  Icon:
+    Material: FARMLAND
+    Model: 0
+  Criteria:
+    1:
+      Type: PLACEBLOCKS
+      Block: WHEAT_SEEDS
+      Amount: 8
+  Reward:
+    Message: "<green>Amazing! This will ensure our food supply."
+    Drops:
+    - hay_block 4
